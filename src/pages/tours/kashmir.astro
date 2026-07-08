@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TourHero from "../../components/TourHero.astro";
 import StickyBookingBar from "../../components/StickyBookingBar.astro";
+import QuickInfo from "../../components/QuickInfo.astro";
 import { kashmir } from "../../data/kashmir.js";
 ---
 
@@ -9,6 +10,7 @@ import { kashmir } from "../../data/kashmir.js";
 
 <TourHero tour={kashmir} />
 <StickyBookingBar tour={kashmir} />
+<QuickInfo tour={kashmir} />
 <section class="tour-highlights">
 
   <div class="container">

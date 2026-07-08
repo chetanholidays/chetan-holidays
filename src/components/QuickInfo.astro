@@ -1,0 +1,31 @@
+---
+const { tour } = Astro.props;
+---
+
+<section class="quick-info">
+
+  <div class="container">
+
+    <div class="quick-info-grid">
+
+      {tour.quickInfo.map((item) => (
+
+        <div class="quick-info-card">
+
+          <div class="quick-info-icon">
+            {item.icon}
+          </div>
+
+          <h4>{item.label}</h4>
+
+          <p>{item.value}</p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>

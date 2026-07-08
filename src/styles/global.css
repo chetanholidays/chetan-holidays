@@ -1557,3 +1557,72 @@ html{
     }
 
 }
+/* ==========================
+   QUICK INFO
+========================== */
+
+.quick-info{
+
+    padding:70px 0;
+
+    background:#ffffff;
+
+}
+
+.quick-info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+
+    gap:20px;
+
+}
+
+.quick-info-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    border:1px solid #ececec;
+
+    transition:.3s;
+
+}
+
+.quick-info-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.quick-info-icon{
+
+    font-size:2.4rem;
+
+    margin-bottom:15px;
+
+}
+
+.quick-info-card h4{
+
+    margin-bottom:8px;
+
+    color:#0F172A;
+
+}
+
+.quick-info-card p{
+
+    color:#666;
+
+    margin:0;
+
+}

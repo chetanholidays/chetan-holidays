@@ -6,6 +6,46 @@ export const kashmir = {
 
   subtitle: "Srinagar • Gulmarg • Pahalgam • Sonmarg",
 
+  quickInfo: [
+
+  {
+    icon: "🕒",
+    label: "Duration",
+    value: "6 Nights / 7 Days"
+  },
+
+  {
+    icon: "🍽",
+    label: "Meals",
+    value: "Breakfast + Dinner"
+  },
+
+  {
+    icon: "🏨",
+    label: "Hotels",
+    value: "Deluxe Hotels"
+  },
+
+  {
+    icon: "🚐",
+    label: "Transport",
+    value: "Sharing Vehicle"
+  },
+
+  {
+    icon: "👨‍👩‍👧",
+    label: "Tour Type",
+    value: "Family Tour"
+  },
+
+  {
+    icon: "📍",
+    label: "Pickup",
+    value: "Srinagar Airport"
+  }
+
+],
+
   highlights: [
 
   {
