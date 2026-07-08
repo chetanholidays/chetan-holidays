@@ -1,0 +1,105 @@
+---
+const { tour } = Astro.props;
+---
+
+<section
+  class="tour-hero"
+  style={`background:
+    linear-gradient(rgba(10,20,35,.70), rgba(10,20,35,.55)),
+    url('${tour.heroImage}') center/cover no-repeat;`}
+>
+
+  <div class="container">
+
+    <div class="tour-hero-grid">
+
+      <div class="tour-left">
+
+        <span class="tour-tag">
+          {tour.tag}
+        </span>
+
+        <h1>{tour.title}</h1>
+
+        <p class="tour-subtitle">
+          {tour.duration} • {tour.subtitle}
+        </p>
+
+        <p class="tour-description">
+          {tour.description}
+        </p>
+
+        <div class="tour-buttons">
+
+          <a href="#enquiry" class="btn btn-primary">
+            Book Now
+          </a>
+
+          <a
+            href="https://wa.me/919967534278"
+            target="_blank"
+            class="btn btn-outline"
+          >
+            WhatsApp
+          </a>
+
+          <a
+            href="#download"
+            class="btn btn-secondary"
+          >
+            Download Brochure
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="tour-price-card">
+
+        <h3>Starting From</h3>
+
+        <h2>₹{tour.adultPrice}</h2>
+
+        <p>Per Adult</p>
+
+        <hr>
+
+        <p>
+
+          👦 Child (5–11 Years)
+
+          <br>
+
+          <strong>₹{tour.childPrice}</strong>
+
+        </p>
+
+        <hr>
+
+        <h4>Upcoming Departures</h4>
+
+        <div class="departure-list">
+
+          {tour.departures.map((departure) => (
+
+            <div class="departure-card">
+
+              <h5>{departure.date}</h5>
+
+              <p>{departure.status}</p>
+
+              <span>{departure.seats} Seats Left</span>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

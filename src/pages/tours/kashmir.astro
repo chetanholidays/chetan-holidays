@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TourHero from "../../components/TourHero.astro";
+import StickyBookingBar from "../../components/StickyBookingBar.astro";
+import { kashmir } from "../../data/kashmir.js";
+---
+
+<BaseLayout title={`${kashmir.title} | Chetan Holidays`}>
+
+<TourHero tour={kashmir} />
+<StickyBookingBar tour={kashmir} />
+<section class="tour-highlights">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Tour Highlights
+    </h2>
+
+    <div class="highlight-grid">
+
+      {kashmir.highlights.map((item) => (
+
+        <div class="highlight-card">
+
+          <div class="highlight-icon">
+            {item.icon}
+          </div>
+
+          <h3>{item.title}</h3>
+
+          <p>{item.description}</p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+</BaseLayout>

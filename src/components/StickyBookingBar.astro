@@ -1,0 +1,35 @@
+---
+const { tour } = Astro.props;
+---
+
+<div class="sticky-booking-bar">
+
+  <div class="container booking-bar-content">
+
+    <div class="booking-info">
+
+      <h4>{tour.title}</h4>
+
+      <span>Starting From <strong>₹{tour.adultPrice}</strong></span>
+
+    </div>
+
+    <div class="booking-actions">
+
+      <a href="#download" class="btn btn-secondary">
+        📄 Download Itinerary
+      </a>
+
+      <a
+        href="https://wa.me/919967534278"
+        class="btn btn-primary"
+        target="_blank"
+      >
+        📲 Book Now
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
