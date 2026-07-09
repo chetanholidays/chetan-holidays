@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { kashmir } from "../../../data/kashmir.js";
+import QuickInfo from "../../../components/QuickInfo.astro";
+import TourItinerary from "../../../components/TourItinerary.astro";
+import TourHotels from "../../../components/TourHotels.astro";
+import TourGallery from "../../../components/TourGallery.astro";
+import TourIncludes from "../../../components/TourIncludes.astro";
+---
+
+<BaseLayout title={`${kashmir.title} - Travel Guide`}>
+
+<section class="guide-cover">
+
+  <section class="guide-cover">
+
+  <div class="guide-overlay">
+
+    <img
+      src={kashmir.heroImage}
+      alt={kashmir.title}
+      class="guide-cover-image"
+    />
+
+    <div class="guide-content">
+
+      <span class="guide-badge">
+        CHETAN HOLIDAYS
+      </span>
+
+      <h1>{kashmir.title}</h1>
+
+      <p class="guide-duration">
+        {kashmir.duration}
+      </p>
+
+      <h2>
+        Starting From ₹{kashmir.adultPrice}
+      </h2>
+
+      <p class="guide-tagline">
+        Trusted Family Tours Since 2005
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</section>
+<QuickInfo tour={kashmir} />
+<TourItinerary tour={kashmir} />
+
+
+</BaseLayout>
