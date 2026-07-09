@@ -1,0 +1,37 @@
+---
+const { tour } = Astro.props;
+---
+
+<section class="tour-gallery">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Tour Gallery
+    </h2>
+
+    <p class="section-subtitle">
+      A glimpse of the unforgettable experiences awaiting you.
+    </p>
+
+    <div class="gallery-grid">
+
+      {tour.gallery.map((image, index) => (
+
+        <div class={`gallery-item ${index === 0 ? "featured" : ""}`}>
+
+          <img
+            src={image}
+            alt={`${tour.title} ${index + 1}`}
+            loading="lazy"
+          />
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>

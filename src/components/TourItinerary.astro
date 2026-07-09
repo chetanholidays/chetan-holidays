@@ -1,0 +1,61 @@
+---
+const { tour } = Astro.props;
+---
+
+<section class="tour-itinerary">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Day-wise Itinerary
+    </h2>
+
+    <p class="section-subtitle">
+      Carefully planned day-by-day schedule for a comfortable and memorable journey.
+    </p>
+
+    <div class="timeline">
+
+      {tour.itinerary.map((day) => (
+
+        <div class="timeline-item">
+
+          <div class="timeline-day">
+            {day.day}
+          </div>
+
+          <div class="timeline-content">
+
+            <h3>{day.title}</h3>
+
+            <div class="timeline-meta">
+
+              <span>📍 {day.location}</span>
+
+              <span>🍽 {day.meals}</span>
+
+              <span>🏨 {day.hotel}</span>
+
+            </div>
+
+            <ul>
+
+              {day.activities.map((activity) => (
+
+                <li>{activity}</li>
+
+              ))}
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>

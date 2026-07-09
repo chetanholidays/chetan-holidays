@@ -73,7 +73,92 @@ export const kashmir = {
   }
 
 ],
+  itinerary: [
 
+    {
+      day: "Day 1",
+      title: "Arrival in Srinagar",
+      location: "Srinagar",
+      hotel: "Srinagar",
+      meals: "Dinner",
+      activities: [
+        "Pickup from Srinagar Airport",
+        "Hotel Check-in",
+        "Evening Shikara Ride",
+        "Dinner & Overnight Stay"
+      ]
+    },
+
+    {
+      day: "Day 2",
+      title: "Srinagar Sightseeing",
+      location: "Srinagar",
+      hotel: "Srinagar",
+      meals: "Breakfast & Dinner",
+      activities: [
+        "Nishat Garden",
+        "Shalimar Garden",
+        "Chashme Shahi",
+        "Shankaracharya Temple"
+      ]
+    },
+
+    {
+      day: "Day 3",
+      title: "Gulmarg Excursion",
+      location: "Gulmarg",
+      hotel: "Srinagar",
+      meals: "Breakfast & Dinner",
+      activities: [
+        "Visit Gulmarg",
+        "Optional Gondola Ride",
+        "Return to Srinagar"
+      ]
+    }
+
+  ],
+  hotels: [
+
+  {
+    city: "Srinagar",
+    name: "Deluxe Hotel / Similar",
+    image: "/images/tours/hotel-srinagar.jpg",
+    room: "Deluxe Room",
+    nights: "3 Nights"
+  },
+
+  {
+    city: "Pahalgam",
+    name: "Deluxe Hotel / Similar",
+    image: "/images/tours/hotel-pahalgam.jpg",
+    room: "Deluxe Room",
+    nights: "1 Night"
+  },
+
+  {
+    city: "Srinagar",
+    name: "Deluxe Hotel / Similar",
+    image: "/images/tours/hotel-srinagar.jpg",
+    room: "Deluxe Room",
+    nights: "2 Nights"
+  }
+
+],
+gallery: [
+
+  "/images/tours/kashmir1.jpg",
+
+  "/images/tours/kashmir2.jpg",
+
+  "/images/tours/kashmir3.jpg",
+
+  "/images/tours/kashmir4.jpg",
+
+  "/images/tours/kashmir5.jpg",
+
+  "/images/tours/kashmir6.jpg"
+
+],
   adultPrice: "21,999",
 
   childPrice: "16,999",

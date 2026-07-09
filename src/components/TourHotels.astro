@@ -1,0 +1,51 @@
+---
+const { tour } = Astro.props;
+---
+
+<section class="tour-hotels">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Hotels You'll Stay
+    </h2>
+
+    <p class="section-subtitle">
+      Comfortable accommodation carefully selected for your family.
+    </p>
+
+    <div class="hotel-grid">
+
+      {tour.hotels.map((hotel) => (
+
+        <div class="hotel-card">
+
+          <img
+            src={hotel.image}
+            alt={hotel.name}
+            loading="lazy"
+          />
+
+          <div class="hotel-content">
+
+            <span class="hotel-city">
+              📍 {hotel.city}
+            </span>
+
+            <h3>{hotel.name}</h3>
+
+            <p>🛏 {hotel.room}</p>
+
+            <p>🌙 {hotel.nights}</p>
+
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>

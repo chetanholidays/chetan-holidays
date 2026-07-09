@@ -3,6 +3,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import TourHero from "../../components/TourHero.astro";
 import StickyBookingBar from "../../components/StickyBookingBar.astro";
 import QuickInfo from "../../components/QuickInfo.astro";
+import TourItinerary from "../../components/TourItinerary.astro";
+import TourHotels from "../../components/TourHotels.astro";
+import TourGallery from "../../components/TourGallery.astro";
+import TourIncludes from "../../components/TourIncludes.astro";
+import TourEnquiry from "../../components/TourEnquiry.astro";
 import { kashmir } from "../../data/kashmir.js";
 ---
 
@@ -42,5 +47,9 @@ import { kashmir } from "../../data/kashmir.js";
   </div>
 
 </section>
-
+<TourItinerary tour={kashmir} />
+<TourHotels tour={kashmir} />
+<TourGallery tour={kashmir} />
+<TourIncludes tour={kashmir} />
+<TourEnquiry tour={kashmir} />
 </BaseLayout>

@@ -1,0 +1,47 @@
+---
+const { tour } = Astro.props;
+---
+
+<section class="tour-includes">
+
+  <div class="container">
+
+    <div class="includes-grid">
+
+      <div class="include-box">
+
+        <h2>✅ What's Included</h2>
+
+        <ul>
+
+          {tour.includes.map((item) => (
+
+            <li>{item}</li>
+
+          ))}
+
+        </ul>
+
+      </div>
+
+      <div class="exclude-box">
+
+        <h2>❌ What's Not Included</h2>
+
+        <ul>
+
+          {tour.excludes.map((item) => (
+
+            <li>{item}</li>
+
+          ))}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

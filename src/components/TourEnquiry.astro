@@ -1,0 +1,160 @@
+---
+const { tour } = Astro.props;
+---
+
+<section class="tour-enquiry" id="enquiry">
+
+  <div class="container">
+
+    <div class="enquiry-wrapper">
+
+      <div class="enquiry-left">
+
+        <h2>Plan Your Kashmir Holiday</h2>
+
+        <p>
+          Fill in your details and our travel expert will contact you with the
+          best available package, hotel options and departure details.
+        </p>
+
+        <ul class="enquiry-benefits">
+          <li>✅ Best Price Guarantee</li>
+          <li>✅ Trusted Family Tours Since 2005</li>
+          <li>✅ 5000+ Happy Travellers</li>
+          <li>✅ Quick WhatsApp Assistance</li>
+        </ul>
+
+      </div>
+
+      <form class="enquiry-form">
+
+        <input
+  type="text"
+  name="name"
+  placeholder="Full Name *"
+  required
+/>
+
+        <input
+  type="tel"
+  name="mobile"
+  placeholder="Mobile Number *"
+  required
+/>
+
+        <input
+  type="email"
+  name="email"
+  placeholder="Email Address"
+/>
+
+        <div class="form-row">
+
+          <input
+  type="number"
+  name="adults"
+  placeholder="Adults"
+  min="1"
+/>
+
+          <input
+  type="number"
+  name="children"
+  placeholder="Children"
+  min="0"
+/>
+
+        </div>
+
+        <select name="departure">
+
+          <option>Select Departure Date</option>
+
+          {tour.departures.map((departure) => (
+
+            <option>{departure.date}</option>
+
+          ))}
+
+        </select>
+
+        <textarea
+  name="message"
+  rows="5"
+  placeholder="Any special requirements?"
+></textarea>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          Send Enquiry
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+<script is:inline>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8xdK90ZS8CtoqbmkS5KGtUda6o3aZVVI6Ucj5aA30UEaamtxIXWyvAM6Xq_XRtsSO8A/exec";
+
+const form = document.querySelector(".enquiry-form");
+
+if (form) {
+
+  form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const data = {
+      source: "Website Enquiry",
+      tour: "Kashmir Family Tour",
+      name: formData.get("name"),
+      mobile: formData.get("mobile"),
+      email: formData.get("email"),
+      adults: formData.get("adults"),
+      children: formData.get("children"),
+      departure: formData.get("departure"),
+      message: formData.get("message")
+    };
+
+    try {
+
+      const response = await fetch(SCRIPT_URL, {
+  method: "POST",
+  mode: "no-cors",
+  body: JSON.stringify(data)
+});
+
+alert("Thank you! Your enquiry has been submitted.");
+
+form.reset();
+
+return;
+
+      const result = await response.json();
+
+      alert(
+        "Thank you! Your enquiry has been submitted.\nReference ID: " +
+        result.leadId
+      );
+
+      form.reset();
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert("Something went wrong. Please try again.");
+
+    }
+
+  });
+
+}
+</script>
