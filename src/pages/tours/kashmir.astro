@@ -8,10 +8,15 @@ import TourHotels from "../../components/TourHotels.astro";
 import TourGallery from "../../components/TourGallery.astro";
 import TourIncludes from "../../components/TourIncludes.astro";
 import TourEnquiry from "../../components/TourEnquiry.astro";
+import TourTerms from "../../components/TourTerms.astro";
+import DownloadPdfModal from "../../components/DownloadPdfModal.astro";
 import { kashmir } from "../../data/kashmir.js";
 ---
 
-<BaseLayout title={`${kashmir.title} | Chetan Holidays`}>
+<BaseLayout
+  title="Kashmir Family Tour Package from Mumbai | 6N/7D | Chetan Holidays"
+  description="Book the Kashmir Family Tour Package from Mumbai with Chetan Holidays. 6 Nights / 7 Days covering Srinagar, Gulmarg, Pahalgam and Sonmarg. Comfortable hotels, meals and sightseeing included."
+>
 
 <TourHero tour={kashmir} />
 <StickyBookingBar tour={kashmir} />
@@ -45,6 +50,7 @@ import { kashmir } from "../../data/kashmir.js";
     </div>
 
   </div>
+  
 
 </section>
 <TourItinerary tour={kashmir} />
@@ -52,4 +58,7 @@ import { kashmir } from "../../data/kashmir.js";
 <TourGallery tour={kashmir} />
 <TourIncludes tour={kashmir} />
 <TourEnquiry tour={kashmir} />
+
+<TourTerms />
+<DownloadPdfModal tour={kashmir} />
 </BaseLayout>

@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!DOCTYPE html>
@@ -52,33 +54,7 @@ content="Travel Made Memorable • Family Tours Since 2005"
 
 <body>
 
-<nav class="navbar">
-
-<div class="container nav-inner">
-
-<a href="/" class="logo">
-
-<img src="/images/logo-icon.png" loading="lazy" alt="Chetan Holidays Logo">
-
-<span>Chetan Holidays</span>
-
-</a>
-
-<ul class="nav-links">
-
-<li><a href="#home">Home</a></li>
-
-<li><a href="#tours">Tours</a></li>
-
-<li><a href="#gallery">Gallery</a></li>
-
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-</div>
-
-</nav>
+<Navbar />
 
 <section class="hero" id="home">
 
@@ -463,75 +439,7 @@ referrerpolicy="no-referrer-when-downgrade">
 </div>
 
 </section>
-<footer>
 
-<div class="container">
-
-<div class="footer-grid">
-
-<div>
-
-<h3>Chetan Holidays</h3>
-
-<p>
-Creating unforgettable family holidays across India and international destinations since 2005.
-</p>
-
-</div>
-
-<div>
-
-<h4>Quick Links</h4>
-
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#tours">Popular Tours</a></li>
-<li><a href="#gallery">Gallery</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-</div>
-
-<div>
-
-<h4>Popular Tours</h4>
-
-<ul>
-<li>Kashmir</li>
-<li>Kerala</li>
-<li>Dubai</li>
-<li>Char Dham</li>
-<li>Sikkim</li>
-</ul>
-
-</div>
-
-<div>
-
-<h4>Contact</h4>
-
-<p>
-📞 +91 99675 34278<br>
-📞 +91 94923 34278<br><br>
-
-✉ Email us chetanholidays99@gmail.com
-</p>
-
-</div>
-
-</div>
-
-<hr>
-
-<div class="copyright">
-
-© 2005–2026 Chetan Holidays. All Rights Reserved.
-
-</div>
-
-</div>
-
-</footer>
 <!-- Floating WhatsApp -->
 
 <a
@@ -546,4 +454,5 @@ Creating unforgettable family holidays across India and international destinatio
 <button id="backToTop" class="back-to-top">
     <i class="bi bi-arrow-up"></i>
 </button>
+<Footer />
 </html>

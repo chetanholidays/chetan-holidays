@@ -1,0 +1,93 @@
+---
+const { tour } = Astro.props;
+---
+
+<div id="pdfModal" class="pdf-modal" aria-hidden="true">
+
+  <div class="pdf-modal-content">
+
+    <button
+      type="button"
+      class="pdf-close"
+      id="closePdfModal"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+    <div class="pdf-logo">
+
+      <img
+        src="/logo.png"
+        alt="Chetan Holidays"
+      />
+
+    </div>
+
+    <h2>
+      Download Tour Itinerary
+    </h2>
+
+    <p class="pdf-subtitle">
+      Get the latest itinerary, hotel details,
+      pricing, departure dates and inclusions for
+      <strong>{tour.title}</strong>.
+    </p>
+
+    <form id="pdfLeadForm">
+
+      <input
+        type="hidden"
+        name="tour"
+        value={tour.title}
+      />
+
+      <input
+        type="hidden"
+        name="source"
+        value="PDF Download"
+      />
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Full Name *"
+        required
+      />
+
+      <input
+        type="tel"
+        name="mobile"
+        placeholder="Mobile Number *"
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+      />
+
+      <input
+        type="text"
+        name="city"
+        placeholder="City"
+      />
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        id="downloadPdfSubmit"
+      >
+        Download Itinerary PDF
+      </button>
+
+    </form>
+
+    <p class="privacy-note">
+      🔒 Your information is used only for your tour enquiry and is never shared with third parties.
+    </p>
+
+  </div>
+
+</div>

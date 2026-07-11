@@ -3,29 +3,62 @@
   <div class="container nav-inner">
 
     <a href="/" class="logo">
-
       <img
         src="/images/logo-icon.png"
         alt="Chetan Holidays Logo"
         loading="lazy"
       >
-
       <span>Chetan Holidays</span>
-
     </a>
 
-    <ul class="nav-links">
+    <!-- Desktop Menu -->
+
+    <ul class="desktop-menu">
 
       <li><a href="/">Home</a></li>
-
       <li><a href="/tours">Tours</a></li>
-
       <li><a href="/#gallery">Gallery</a></li>
-
       <li><a href="/#contact">Contact</a></li>
 
     </ul>
 
+    <!-- Mobile Button -->
+
+    <button
+      class="mobile-toggle"
+      id="mobileToggle"
+      aria-label="Open Menu"
+    >
+      <i class="bi bi-list"></i>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+
+  <div class="mobile-menu" id="mobileMenu">
+
+    <a href="/">Home</a>
+
+    <a href="/tours">Tours</a>
+
+    <a href="/#gallery">Gallery</a>
+
+    <a href="/#contact">Contact</a>
+
   </div>
 
 </nav>
+
+<script is:inline>
+
+const toggle=document.getElementById("mobileToggle");
+const menu=document.getElementById("mobileMenu");
+
+toggle?.addEventListener("click",()=>{
+
+    menu.classList.toggle("show");
+
+});
+
+</script>
