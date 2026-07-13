@@ -380,29 +380,19 @@ transition:.35s;
 
 }
 .btn-secondary{
-
 display:inline-flex;
-
 align-items:center;
-
 justify-content:center;
-
-padding:18px 40px;
-
+padding:14px 32px;
 background:#C9A227;
-
 color:#0F172A;
-
-border-radius:60px;
-
+border-radius:18px;
 font-weight:700;
-
 text-decoration:none;
-
 transition:.35s;
-
 border:none;
-
+min-height:56px;
+text-align:center;
 }
 
 .btn-secondary:hover{
@@ -2997,4 +2987,22 @@ grid-template-columns:1fr;
 .back-to-top{
     bottom:95px;
 }
+}
+.price-label{
+  font-size:18px;
+  color:#666;
+  margin-bottom:4px;
+}
+
+.price{
+  font-size:2rem;
+  font-weight:800;
+  color:#C9A227;
+  line-height:1.1;
+}
+
+.price small{
+  font-size:1rem;
+  color:#555;
+  font-weight:600;
 }
