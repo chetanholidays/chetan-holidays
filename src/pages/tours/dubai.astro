@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TourHero from "../../components/TourHero.astro";
+import StickyBookingBar from "../../components/StickyBookingBar.astro";
+import QuickInfo from "../../components/QuickInfo.astro";
+import TourItinerary from "../../components/TourItinerary.astro";
+import TourHotels from "../../components/TourHotels.astro";
+import TourGallery from "../../components/TourGallery.astro";
+import TourIncludes from "../../components/TourIncludes.astro";
+import TourEnquiry from "../../components/TourEnquiry.astro";
+import DownloadPdfModal from "../../components/DownloadPdfModal.astro";
+import { dubai } from "../../data/dubai.js";
+---
+
+<BaseLayout title={`${dubai.title} | Chetan Holidays`}>
+
+<TourHero tour={dubai} />
+<StickyBookingBar tour={dubai} />
+<QuickInfo tour={dubai} />
+<section class="tour-highlights">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Tour Highlights
+    </h2>
+
+    <div class="highlight-grid">
+
+      {dubai.highlights.map((item) => (
+
+        <div class="highlight-card">
+
+          <div class="highlight-icon">
+            {item.icon}
+          </div>
+
+          <h3>{item.title}</h3>
+
+          <p>{item.description}</p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+<TourItinerary tour={dubai} />
+<TourHotels tour={dubai} />
+<TourGallery tour={dubai} />
+<TourIncludes tour={dubai} />
+<TourEnquiry tour={dubai} />
+<DownloadPdfModal tour={dubai} />
+</BaseLayout>

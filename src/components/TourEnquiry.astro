@@ -2,7 +2,7 @@
 const { tour } = Astro.props;
 ---
 
-<section class="tour-enquiry" id="enquiry">
+<section class="tour-enquiry" id="enquiry" data-tour-title={tour.title}>
 
   <div class="container">
 
@@ -10,7 +10,7 @@ const { tour } = Astro.props;
 
       <div class="enquiry-left">
 
-        <h2>Plan Your Kashmir Holiday</h2>
+        <h2>Plan Your {tour.title.replace(/ Tour$| Family Tour$/, "")} Holiday</h2>
 
         <p>
           Fill in your details and our travel expert will contact you with the
@@ -25,36 +25,7 @@ const { tour } = Astro.props;
         </ul>
 
       </div>
-<div id="enquirySuccess" class="success-message">
 
-  <div class="success-icon">✅</div>
-
-  <h2>Thank You!</h2>
-
-  <p>
-    Your enquiry has been received successfully.
-  </p>
-
-  <p>
-    Our travel expert will contact you within
-    <strong>24 hours.</strong>
-  </p>
-
-  <div class="success-contact">
-
-    <strong>Chetan Holidays</strong><br>
-
-    📞 9967534278<br>
-
-    ✉️ chetanholidays99@gmail.com
-
-  </div>
-
-  <a href="/tours" class="btn btn-primary">
-    Explore More Tours
-  </a>
-
-</div>
       <form class="enquiry-form">
 
         <input
@@ -131,6 +102,7 @@ const { tour } = Astro.props;
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8xdK90ZS8CtoqbmkS5KGtUda6o3aZVVI6Ucj5aA30UEaamtxIXWyvAM6Xq_XRtsSO8A/exec";
 
 const form = document.querySelector(".enquiry-form");
+const TOUR_TITLE = document.querySelector('[data-tour-title]')?.dataset.tourTitle || "Website Enquiry";
 
 if (form) {
 
@@ -142,7 +114,7 @@ if (form) {
 
     const data = {
       source: "Website Enquiry",
-      tour: "Kashmir Family Tour",
+      tour: TOUR_TITLE,
       name: formData.get("name"),
       mobile: formData.get("mobile"),
       email: formData.get("email"),
@@ -154,24 +126,26 @@ if (form) {
 
     try {
 
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify(data)
-      });
+      const response = await fetch(SCRIPT_URL, {
+  method: "POST",
+  mode: "no-cors",
+  body: JSON.stringify(data)
+});
+
+alert("Thank you! Your enquiry has been submitted.");
+
+form.reset();
+
+return;
+
+      const result = await response.json();
+
+      alert(
+        "Thank you! Your enquiry has been submitted.\nReference ID: " +
+        result.leadId
+      );
 
       form.reset();
-
-      form.style.display = "none";
-
-      document
-        .getElementById("enquirySuccess")
-        .classList.add("show");
-
-      window.scrollTo({
-        top: document.getElementById("enquiry").offsetTop - 100,
-        behavior: "smooth"
-      });
 
     } catch (error) {
 

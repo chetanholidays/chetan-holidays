@@ -2988,21 +2988,3 @@ grid-template-columns:1fr;
     bottom:95px;
 }
 }
-.price-label{
-  font-size:18px;
-  color:#666;
-  margin-bottom:4px;
-}
-
-.price{
-  font-size:2rem;
-  font-weight:800;
-  color:#C9A227;
-  line-height:1.1;
-}
-
-.price small{
-  font-size:1rem;
-  color:#555;
-  font-weight:600;
-}
