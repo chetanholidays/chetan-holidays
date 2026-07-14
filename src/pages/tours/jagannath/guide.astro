@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { jagannath } from "../../../data/jagannath.js";
+import QuickInfo from "../../../components/QuickInfo.astro";
+import TourItinerary from "../../../components/TourItinerary.astro";
+import TourHotels from "../../../components/TourHotels.astro";
+import TourGallery from "../../../components/TourGallery.astro";
+import TourIncludes from "../../../components/TourIncludes.astro";
+---
+
+<BaseLayout title={`${jagannath.title} - Travel Guide`}>
+
+<section class="guide-cover">
+
+  <section class="guide-cover">
+
+  <div class="guide-overlay">
+
+    <img
+      src={jagannath.heroImage}
+      alt={jagannath.title}
+      class="guide-cover-image"
+    />
+
+    <div class="guide-content">
+
+      <span class="guide-badge">
+        CHETAN HOLIDAYS
+      </span>
+
+      <h1>{jagannath.title}</h1>
+
+      <p class="guide-duration">
+        {jagannath.duration}
+      </p>
+
+      <h2>
+        Starting From ₹{jagannath.adultPrice}
+      </h2>
+
+      <p class="guide-tagline">
+        Trusted Family Tours Since 2005
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</section>
+<QuickInfo tour={jagannath} />
+<TourItinerary tour={jagannath} />
+
+
+</BaseLayout>

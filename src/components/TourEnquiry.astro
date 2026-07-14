@@ -25,7 +25,11 @@ const { tour } = Astro.props;
         </ul>
 
       </div>
-
+<div id="enquirySuccess" class="success-message">
+  ✅ Thank you! Your enquiry has been submitted successfully.
+  <br>
+  Our travel expert will contact you shortly.
+</div>
       <form class="enquiry-form">
 
         <input
@@ -102,7 +106,9 @@ const { tour } = Astro.props;
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8xdK90ZS8CtoqbmkS5KGtUda6o3aZVVI6Ucj5aA30UEaamtxIXWyvAM6Xq_XRtsSO8A/exec";
 
 const form = document.querySelector(".enquiry-form");
-const TOUR_TITLE = document.querySelector('[data-tour-title]')?.dataset.tourTitle || "Website Enquiry";
+const TOUR_TITLE =
+  document.querySelector("[data-tour-title]")?.dataset.tourTitle ||
+  "Website Enquiry";
 
 if (form) {
 
@@ -126,26 +132,22 @@ if (form) {
 
     try {
 
-      const response = await fetch(SCRIPT_URL, {
-  method: "POST",
-  mode: "no-cors",
-  body: JSON.stringify(data)
-});
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(data)
+      });
 
-alert("Thank you! Your enquiry has been submitted.");
-
-form.reset();
-
-return;
-
-      const result = await response.json();
-
-      alert(
-        "Thank you! Your enquiry has been submitted.\nReference ID: " +
-        result.leadId
-      );
+      document
+        .getElementById("enquirySuccess")
+        .classList.add("show");
 
       form.reset();
+
+      window.scrollTo({
+        top: document.getElementById("enquiry").offsetTop - 100,
+        behavior: "smooth"
+      });
 
     } catch (error) {
 

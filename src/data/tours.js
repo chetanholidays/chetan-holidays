@@ -22,5 +22,13 @@ export const tours = [
     badge: "International",
     price: "Contact Us",
     slug: "dubai"
+  },
+  {
+    title: "Jagannath Puri Tour",
+    image: "/images/jagannath.jpg",
+    duration: "6 Nights / 7 Days",
+    badge: "Spiritual Tour",
+    price: "Contact Us",
+    slug: "jagannath"
   }
 ];

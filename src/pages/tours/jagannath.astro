@@ -10,17 +10,17 @@ import TourIncludes from "../../components/TourIncludes.astro";
 import TourEnquiry from "../../components/TourEnquiry.astro";
 import TourTerms from "../../components/TourTerms.astro";
 import DownloadPdfModal from "../../components/DownloadPdfModal.astro";
-import { dubai } from "../../data/dubai.js";
+import { jagannath } from "../../data/jagannath.js";
 ---
 
 <BaseLayout
-  title="Dubai Tour Package from Mumbai | 4N/5D | Chetan Holidays"
-  description="Book the Dubai Tour Package from Mumbai with Chetan Holidays. 4 Nights / 5 Days covering Dubai City, Desert Safari and Abu Dhabi. Comfortable hotels, daily breakfast and sightseeing included."
+  title="Jagannath Puri Tour Package from Mumbai | 6N/7D | Chetan Holidays"
+  description="Book the Jagannath Puri - Konark - Bhubaneswar - Kolkata - Gangasagar Tour Package from Mumbai/Pune with Chetan Holidays. 6 Nights / 7 Days with train travel, hotels, meals and guided sightseeing."
 >
 
-<TourHero tour={dubai} />
-<StickyBookingBar tour={dubai} />
-<QuickInfo tour={dubai} />
+<TourHero tour={jagannath} />
+<StickyBookingBar tour={jagannath} />
+<QuickInfo tour={jagannath} />
 <section class="tour-highlights">
 
   <div class="container">
@@ -31,7 +31,7 @@ import { dubai } from "../../data/dubai.js";
 
     <div class="highlight-grid">
 
-      {dubai.highlights.map((item) => (
+      {jagannath.highlights.map((item) => (
 
         <div class="highlight-card">
 
@@ -52,12 +52,33 @@ import { dubai } from "../../data/dubai.js";
   </div>
 
 </section>
-<TourItinerary tour={dubai} />
-<TourHotels tour={dubai} />
-<TourGallery tour={dubai} />
-<TourIncludes tour={dubai} />
-<TourEnquiry tour={dubai} />
+<TourItinerary tour={jagannath} />
+<TourHotels tour={jagannath} />
+<TourGallery tour={jagannath} />
+<TourIncludes tour={jagannath} />
+<section class="tour-highlights">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Important Information
+    </h2>
+
+    <ul>
+
+      {jagannath.notes.map((note) => (
+
+        <li>{note}</li>
+
+      ))}
+
+    </ul>
+
+  </div>
+
+</section>
+<TourEnquiry tour={jagannath} />
 
 <TourTerms />
-<DownloadPdfModal tour={dubai} />
+<DownloadPdfModal tour={jagannath} />
 </BaseLayout>
