@@ -17,11 +17,17 @@ const { tour } = Astro.props;
 
     <div class="pdf-logo">
 
-      <img
-        src="/logo.png"
-        alt="Chetan Holidays"
-      />
+      <div class="pdf-brand">
+  <img
+    src="/logo.png"
+    alt="Chetan Holidays"
+    class="pdf-logo-image"
+  />
 
+  <h3>Chetan Holidays</h3>
+
+  <p>Trusted Family Tours Since 2005</p>
+</div>
     </div>
 
     <h2>
@@ -30,8 +36,7 @@ const { tour } = Astro.props;
 
     <p class="pdf-subtitle">
       Get the latest itinerary, hotel details,
-      pricing, departure dates and inclusions for
-      <strong>{tour.title}</strong>.
+      pricing, departure dates and inclusions for <strong>{tour.title}</strong>.
     </p>
 
     <form id="pdfLeadForm">
@@ -91,3 +96,94 @@ const { tour } = Astro.props;
   </div>
 
 </div>
+<div id="downloadToast" class="download-toast">
+    ✅ Your itinerary is downloading...
+  </div>
+<script type="module">
+import { generateTourPDF } from "../utils/generatePdf.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8xdK90ZS8CtoqbmkS5KGtUda6o3aZVVI6Ucj5aA30UEaamtxIXWyvAM6Xq_XRtsSO8A/exec";
+
+  const modal = document.getElementById("pdfModal");
+  const openBtns = document.querySelectorAll(".download-pdf-btn");
+  const closeBtn = document.getElementById("closePdfModal");
+  const form = document.getElementById("pdfLeadForm");
+
+  if (!modal || !closeBtn || !form || openBtns.length === 0) return;
+
+  openBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+  });
+});
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+    }
+  });
+
+  form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const data = {
+      source: "PDF Download",
+      tour: formData.get("tour"),
+      name: formData.get("name"),
+      mobile: formData.get("mobile"),
+      email: formData.get("email"),
+      city: formData.get("city")
+    };
+
+    try {
+
+      await fetch(SCRIPT_URL,{
+        method:"POST",
+        mode:"no-cors",
+        body:JSON.stringify(data)
+      });
+
+      await generateTourPDF(`${data.tour}.pdf`);
+
+      form.reset();
+
+modal.classList.remove("active");
+modal.setAttribute("aria-hidden", "true");
+
+const toast = document.getElementById("downloadToast");
+console.log("Toast element:", toast);
+
+if (toast) {
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+
+    } catch(err){
+
+      console.error(err);
+
+      alert("Something went wrong.");
+
+    }
+
+  });
+
+});
+</script>

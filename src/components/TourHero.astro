@@ -31,25 +31,26 @@ const { tour } = Astro.props;
 
         <div class="tour-buttons">
 
-          <a href="#enquiry" class="btn btn-secondary">
-            Book Now
-          </a>
-
           <a
-            href="https://wa.me/919967534278"
-            target="_blank"
-            class="btn btn-secondary"
-          >
-            WhatsApp
-          </a>
+  href={`https://wa.me/919967534278?text=${encodeURIComponent(
+    `Hello Chetan Holidays,
 
-         <a
-  href="#"
-  class="btn btn-secondary"
-  id="downloadPdfBtn"
+I am interested in the ${tour.title}.
+
+Please share complete details.`
+  )}`}
+  class="btn btn-primary"
+  target="_blank"
+>
+    Enquire Now
+
+</a>
+
+<button
+  class="btn btn-secondary download-pdf-btn"
 >
   Download Itinerary PDF
-</a>
+</button>
 
         </div>
 

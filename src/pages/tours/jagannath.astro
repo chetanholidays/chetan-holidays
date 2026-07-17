@@ -10,6 +10,7 @@ import TourIncludes from "../../components/TourIncludes.astro";
 import TourEnquiry from "../../components/TourEnquiry.astro";
 import TourTerms from "../../components/TourTerms.astro";
 import DownloadPdfModal from "../../components/DownloadPdfModal.astro";
+import TourPdfTemplate from "../../components/TourPdfTemplate.astro";
 import { jagannath } from "../../data/jagannath.js";
 ---
 
@@ -81,4 +82,6 @@ import { jagannath } from "../../data/jagannath.js";
 
 <TourTerms />
 <DownloadPdfModal tour={jagannath} />
+<TourPdfTemplate tour={jagannath} />
+
 </BaseLayout>

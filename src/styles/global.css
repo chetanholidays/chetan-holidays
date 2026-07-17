@@ -342,7 +342,7 @@ box-shadow:0 15px 35px rgba(0,0,0,.2);
 
 background:#0F172A;
 
-color:#fff;
+color:#ecdd09;
 
 }
 
@@ -370,7 +370,7 @@ background:rgba(255,255,255,.18);
 
 border:2px solid rgba(255,255,255,.45);
 
-color:#fff;
+color:#e9d30e;
 
 border-radius:60px;
 
@@ -393,6 +393,7 @@ transition:.35s;
 border:none;
 min-height:56px;
 text-align:center;
+cursor: pointer;
 }
 
 .btn-secondary:hover{
@@ -408,11 +409,11 @@ box-shadow:0 15px 35px rgba(0,0,0,.18);
 }
 .btn-outline:hover{
 
-background:#ffffff;
+background:#6cee2f;
 
 color:#0F172A;
 
-border-color:#ffffff;
+border-color:#0fe9e9;
 
 }
 .btn-outline i{
@@ -2987,4 +2988,51 @@ grid-template-columns:1fr;
 .back-to-top{
     bottom:95px;
 }
+}
+.pdf-brand{
+  text-align:center;
+  margin-bottom:24px;
+}
+
+.pdf-logo-image{
+  width:80px;
+  height:auto;
+  margin:0 auto 12px;
+  display:block;
+}
+
+.pdf-brand h3{
+  margin:0;
+  font-size:32px;
+  font-weight:700;
+  color:#0F172A;
+  line-height:1.1;
+}
+
+.pdf-brand p{
+  margin:6px 0 0;
+  font-size:15px;
+  color:#666;
+}
+.download-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #16A34A;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all .3s ease;
+  z-index: 9999;
+}
+
+.download-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
