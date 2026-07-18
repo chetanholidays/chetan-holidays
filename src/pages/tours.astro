@@ -4,59 +4,125 @@ import { tours } from "../data/tours.js";
 ---
 
 <BaseLayout title="Tour Packages | Chetan Holidays">
-<section class="page-banner">
-  <div class="container">
-    <h1>Our Tour Packages</h1>
-    <p>Explore India & International Destinations with Chetan Holidays</p>
-  </div>
-</section>
 
-<section class="tours-page">
-  <div class="container">
+  <!-- Hero -->
+  <section class="tours-hero">
+    <div class="hero-overlay">
+      <div class="container hero-content">
 
-    <div class="tour-grid">
+        <span class="hero-badge">
+          Trusted Family Tours Since 2005
+        </span>
 
-      {tours.map((tour) => (
+        <h1>Explore Our Tour Packages</h1>
 
-        <div class="tour-card">
+        <p>
+          Discover unforgettable family holidays across India and international
+          destinations with comfortable travel, quality hotels and memorable
+          experiences.
+        </p>
 
-          <img
-            src={tour.image}
-            alt={tour.title}
-            loading="lazy"
-          />
+        <a href="#tour-grid" class="btn btn-primary">
+          Explore Tours
+        </a>
 
-          <div class="tour-content">
+      </div>
+    </div>
+  </section>
 
-            <span class="tour-badge">
-              {tour.badge}
-            </span>
+  <!-- Stats -->
+  <section class="tour-stats">
+    <div class="container">
 
-            <h3>{tour.title}</h3>
+      <div class="stats-grid">
 
-            <p>{tour.duration}</p>
+        <div class="stats-item">
+          <div class="stats-icon">⭐</div>
+          <h3>5000+</h3>
+          <p>Happy Tourists</p>
+        </div>
 
-            <p>
-              Starting from
-              <strong> ₹ {tour.price}</strong>
-            </p>
+        <div class="stats-item">
+          <div class="stats-icon">🚌</div>
+          <h3>20+</h3>
+          <p>Destinations</p>
+        </div>
 
-            <a
-              href={`/tours/${tour.slug}`}
-              class="btn btn-primary"
-            >
-              View Details
-            </a>
+        <div class="stats-item">
+          <div class="stats-icon">🏨</div>
+          <h3>Quality</h3>
+          <p>Hotels</p>
+        </div>
 
-          </div>
+        <div class="stats-item">
+          <div class="stats-icon">👨‍👩‍👧‍👦</div>
+          <h3>Family</h3>
+          <p>Group Tours</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Tour Cards -->
+  <section class="tours-page">
+
+    <div class="container">
+
+      <div id="tour-grid" class="tour-grid">
+
+  {tours.map((tour) => (
+
+    <article class="tour-card">
+
+      <div class="tour-image">
+
+        <img
+          src={tour.image}
+          alt={tour.title}
+          loading="lazy"
+        />
+
+        <span class="tour-badge">
+          {tour.badge}
+        </span>
+
+      </div>
+
+      <div class="tour-content">
+
+        <h3>{tour.title}</h3>
+
+        <div class="tour-duration">
+          📅 {tour.duration}
+        </div>
+
+        <div class="tour-price">
+
+          <small>Starting from</small>
+
+          <h4>₹ {tour.price}</h4>
 
         </div>
 
-      ))}
+        <a
+          href={`/tours/${tour.slug}`}
+          class="btn btn-primary"
+        >
+          View Tour →
+        </a>
+
+      </div>
+
+    </article>
+
+  ))}
+
+</div>
 
     </div>
 
-  </div>
-</section>
+  </section>
 
 </BaseLayout>
