@@ -305,12 +305,22 @@ export const chandigarhShimlaManaliDharamshalaDalhousie = {
     "Discover the breathtaking beauty of Himachal Pradesh with Chetan Holidays on this family tour covering Chandigarh, Shimla, Kufri, Manali, Dharamshala, Dalhousie and Khajjiar.",
 
   departures: [
-    {
-      date: "09 April 2027",
-      seats: 20,
-      status: "Guaranteed Departure"
-    }
-  ],
+  {
+    date: "09 April 2027",
+    seats: 20,
+    status: "Guaranteed Departure"
+  },
+  {
+    date: "03 May 2027",
+    seats: 20,
+    status: "Guaranteed Departure"
+  },
+  {
+    date: "24 May 2027",
+    seats: 20,
+    status: "Guaranteed Departure"
+  }
+],
 
   includes: [
 

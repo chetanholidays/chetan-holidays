@@ -304,13 +304,22 @@ export const amritsarVaishnoDeviKashmir = {
     "Experience the perfect blend of spirituality and natural beauty with Chetan Holidays. Visit the Golden Temple in Amritsar, seek blessings at Vaishno Devi, and explore the breathtaking valleys, lakes and snow-capped mountains of Kashmir.",
 
   departures: [
-    {
-      date: "12 May 2027",
-      seats: 20,
-      status: "Guaranteed Departure"
-    }
-  ],
-
+  {
+    date: "29 March 2027",
+    seats: 20,
+    status: "Guaranteed Departure"
+  },
+  {
+    date: "19 April 2027",
+    seats: 20,
+    status: "Guaranteed Departure"
+  },
+  {
+    date: "12 May 2027",
+    seats: 20,
+    status: "Guaranteed Departure"
+  }
+],
   includes: [
 
     "Hotel Accommodation",
