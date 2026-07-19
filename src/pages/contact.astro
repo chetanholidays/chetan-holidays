@@ -1,0 +1,267 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Contact Us | Chetan Holidays"
+  description="Get in touch with Chetan Holidays for family tour bookings and enquiries. Call, WhatsApp or visit our Mumbai and Pune offices."
+>
+
+  <!-- Hero -->
+  <section class="tours-hero">
+    <div class="hero-overlay">
+      <div class="container hero-content">
+
+        <span class="hero-badge">
+          Trusted Family Tours Since 2005
+        </span>
+
+        <h1>Get In Touch</h1>
+
+        <p>
+          Planning a family holiday? Our travel experts are just one message
+          away — reach out and we'll help you pick the perfect tour.
+        </p>
+
+        <a
+          href="https://wa.me/919967534278?text=Hello%20Chetan%20Holidays,%20I%20would%20like%20to%20plan%20a%20tour."
+          class="btn btn-primary"
+          target="_blank"
+        >
+          Chat on WhatsApp
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Details -->
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Let's Plan Your Next Journey</h2>
+        <p>
+          Planning a family holiday? Our travel experts are just one message away.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <h3>📞 Call Us</h3>
+          <p>
+            <a href="tel:+919967534278">+91 99675 34278</a><br>
+            <a href="tel:+919492334278">+91 94923 34278</a>
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>✉ Email</h3>
+          <p>
+            <a href="mailto:chetanholidays99@gmail.com">
+              chetanholidays99@gmail.com
+            </a>
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>🏢 Head Office</h3>
+          <p>
+            8A-305 MHADA Tower,<br>
+            Kannamwar Nagar 2,<br>
+            Vikhroli East,<br>
+            Mumbai – 400083
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>📍 Branch Offices</h3>
+          <p>
+
+            <b>Ghatkopar West</b><br>
+            306, Excel Arcade,<br>
+            LBS Marg, Near BMC Office, <br>Ghatkopar West, Mumbai 400086<br><br>
+
+            <b>Alephata</b><br>
+            Pune – 412411<br><br>
+
+            <b>Wakad</b><br>
+            Pune – 411057
+
+          </p>
+        </div>
+
+      </div>
+
+      <div class="contact-buttons">
+
+        <a
+          href="https://wa.me/919967534278?text=Hello%20Chetan%20Holidays,%20I%20would%20like%20to%20plan%20a%20tour."
+          target="_blank"
+          class="btn btn-primary">
+
+          Chat on WhatsApp
+
+        </a>
+
+        <a
+          href="https://maps.app.goo.gl/NFAfvWbwvhXRi8fV8"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary">
+
+          Get Directions
+
+        </a>
+
+      </div>
+
+      <div class="map-container">
+
+        <iframe
+          src="https://www.google.com/maps?q=Chetan+Holidays+Ghatkopar+West+Mumbai&output=embed"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Enquiry Form -->
+  <section class="tour-enquiry" id="enquiry" data-tour-title="Website Enquiry">
+
+    <div class="container">
+
+      <div class="enquiry-wrapper">
+
+        <div class="enquiry-left">
+
+          <h2>Send Us an Enquiry</h2>
+
+          <p>
+            Fill in your details and our travel expert will get back to you
+            with the best tour options, hotel choices and departure dates.
+          </p>
+
+          <ul class="enquiry-benefits">
+            <li>✅ Best Price Guarantee</li>
+            <li>✅ Trusted Family Tours Since 2005</li>
+            <li>✅ 5000+ Happy Travellers</li>
+            <li>✅ Quick WhatsApp Assistance</li>
+          </ul>
+
+        </div>
+
+        <div id="enquirySuccess" class="success-message">
+          ✅ Thank you! Your enquiry has been submitted successfully.
+          <br>
+          Our travel expert will contact you shortly.
+        </div>
+
+        <form class="enquiry-form">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name *"
+            required
+          />
+
+          <input
+            type="tel"
+            name="mobile"
+            placeholder="Mobile Number *"
+            required
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+          />
+
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Tell us which tour you're interested in, or any special requirements"
+          ></textarea>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >
+            Send Enquiry
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</BaseLayout>
+
+<script is:inline>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8xdK90ZS8CtoqbmkS5KGtUda6o3aZVVI6Ucj5aA30UEaamtxIXWyvAM6Xq_XRtsSO8A/exec";
+
+const form = document.querySelector(".enquiry-form");
+const TOUR_TITLE =
+  document.querySelector("[data-tour-title]")?.dataset.tourTitle ||
+  "Website Enquiry";
+
+if (form) {
+
+  form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const data = {
+      source: "Website Enquiry",
+      tour: TOUR_TITLE,
+      name: formData.get("name"),
+      mobile: formData.get("mobile"),
+      email: formData.get("email"),
+      message: formData.get("message")
+    };
+
+    try {
+
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(data)
+      });
+
+      document
+        .getElementById("enquirySuccess")
+        .classList.add("show");
+
+      form.reset();
+
+      window.scrollTo({
+        top: document.getElementById("enquiry").offsetTop - 100,
+        behavior: "smooth"
+      });
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert("Something went wrong. Please try again.");
+
+    }
+
+  });
+
+}
+</script>

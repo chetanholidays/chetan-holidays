@@ -1,32 +1,199 @@
 ---
-import '../styles/global.css';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { tours } from "../data/tours.js";
+
+const popularTours = tours.slice(0, 3);
 ---
 
-<html lang="en">
-<head>
-<title>Page Not Found | Chetan Holidays</title>
-</head>
+<BaseLayout
+  title="Page Not Found | Chetan Holidays"
+  description="The page you're looking for doesn't exist. Explore Chetan Holidays' family tour packages instead."
+>
 
-<body>
+  <section class="not-found">
 
-<section class="hero">
+    <div class="container not-found-inner">
 
-<div class="container">
+      <div class="not-found-emoji">🧭</div>
 
-<h1>404</h1>
+      <h1>404</h1>
 
-<p>
-Oops! The page you're looking for doesn't exist.
-</p>
+      <h2>Looks Like You've Wandered Off The Itinerary</h2>
 
-<a href="/" class="btn btn-primary">
-Back to Home
-</a>
+      <p>
+        The page you're looking for doesn't exist, may have moved, or the
+        link might be broken. Let's get you back on track.
+      </p>
 
-</div>
+      <div class="not-found-buttons">
 
-</section>
+        <a href="/" class="btn btn-primary">
+          Back to Home
+        </a>
 
-</body>
+        <a href="/tours" class="btn btn-secondary">
+          Explore Tours
+        </a>
 
-</html>
+        <a
+          href="https://wa.me/919967534278?text=Hello%20Chetan%20Holidays,%20I%20need%20some%20help%20finding%20a%20tour."
+          class="btn btn-secondary"
+          target="_blank"
+        >
+          Chat on WhatsApp
+        </a>
+
+      </div>
+
+      <div class="not-found-popular">
+
+        <h3>Or Explore Our Popular Tours</h3>
+
+        <div class="not-found-tour-grid">
+
+          {popularTours.map((tour) => (
+
+            <a href={`/tours/${tour.slug}`} class="not-found-tour-card">
+
+              <img src={tour.image} alt={tour.title} loading="lazy" />
+
+              <div class="not-found-tour-content">
+                <h4>{tour.title}</h4>
+                <span>{tour.duration}</span>
+              </div>
+
+            </a>
+
+          ))}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</BaseLayout>
+
+<style>
+
+  .not-found{
+    padding:100px 0 90px;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(46,125,50,.06), transparent 40%),
+      radial-gradient(circle at 85% 10%, rgba(245,124,0,.07), transparent 40%),
+      var(--bg);
+  }
+
+  .not-found-inner{
+    max-width:720px;
+    text-align:center;
+    margin:0 auto;
+  }
+
+  .not-found-emoji{
+    font-size:3.2rem;
+    margin-bottom:10px;
+  }
+
+  .not-found h1{
+    font-size:clamp(4.5rem,12vw,7.5rem);
+    font-weight:800;
+    line-height:1;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:8px;
+  }
+
+  .not-found h2{
+    font-size:clamp(1.3rem,3vw,1.8rem);
+    color:var(--text);
+    margin-bottom:18px;
+  }
+
+  .not-found > .container > p{
+    color:var(--muted);
+    font-size:1.05rem;
+    line-height:1.8;
+    max-width:520px;
+    margin:0 auto 36px;
+  }
+
+  .not-found-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+    margin-bottom:70px;
+  }
+
+  .not-found-popular h3{
+    font-size:1.3rem;
+    margin-bottom:26px;
+  }
+
+  .not-found-tour-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    text-align:left;
+  }
+
+  .not-found-tour-card{
+    display:block;
+    background:var(--card);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    text-decoration:none;
+    color:inherit;
+    transition:.35s ease;
+  }
+
+  .not-found-tour-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 60px rgba(0,0,0,.15);
+  }
+
+  .not-found-tour-card img{
+    width:100%;
+    height:130px;
+    object-fit:cover;
+  }
+
+  .not-found-tour-content{
+    padding:16px 18px;
+  }
+
+  .not-found-tour-content h4{
+    font-size:1rem;
+    margin-bottom:6px;
+  }
+
+  .not-found-tour-content span{
+    font-size:.85rem;
+    color:var(--muted);
+  }
+
+  @media (max-width:768px){
+
+    .not-found{
+      padding:70px 0 60px;
+    }
+
+    .not-found-buttons{
+      flex-direction:column;
+      align-items:stretch;
+      margin-bottom:50px;
+    }
+
+    .not-found-tour-grid{
+      grid-template-columns:1fr;
+    }
+
+  }
+
+</style>

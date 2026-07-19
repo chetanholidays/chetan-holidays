@@ -1,0 +1,373 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { galleryImages } from "../data/gallery.js";
+---
+
+<BaseLayout
+  title="Gallery | Chetan Holidays"
+  description="Browse photos from Chetan Holidays' family tours across India and beyond — happy travellers, iconic destinations and unforgettable moments."
+>
+
+  <!-- Hero -->
+  <section class="tours-hero">
+    <div class="hero-overlay">
+      <div class="container hero-content">
+
+        <span class="hero-badge">
+          Trusted Family Tours Since 2005
+        </span>
+
+        <h1>Our Travel Gallery</h1>
+
+        <p>
+          A glimpse of the destinations, journeys and happy travellers who have
+          explored the world with Chetan Holidays.
+        </p>
+
+        <a href="#gallery-grid" class="btn btn-primary">
+          View Photos
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-page">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Moments From Our Journeys</h2>
+        <p>
+          For over two decades, families have trusted Chetan Holidays to create
+          unforgettable journeys. Here are a few moments captured along the way.
+        </p>
+      </div>
+
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All Photos</button>
+        <button class="filter-btn" data-filter="moments">Traveller Moments</button>
+        <button class="filter-btn" data-filter="destinations">Destinations</button>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid">
+
+        {galleryImages.map((img, index) => (
+
+          <div class="gallery-item-wrap" data-category={img.category}>
+
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              class="gallery-img"
+              data-index={index}
+            />
+
+          </div>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="gallery-cta">
+    <div class="container gallery-cta-inner">
+
+      <h2>Ready to Create Your Own Memories?</h2>
+
+      <p>
+        Explore our family tour packages and start planning your next unforgettable journey.
+      </p>
+
+      <div class="gallery-cta-buttons">
+
+        <a href="/tours" class="btn btn-primary">
+          Explore Tours
+        </a>
+
+        <a
+          href="https://wa.me/919967534278?text=Hello%20Chetan%20Holidays%2C%20I%20saw%20your%20gallery%20and%20would%20like%20to%20know%20more%20about%20your%20tours."
+          class="btn btn-secondary"
+          target="_blank"
+        >
+          Enquire on WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
+
+    <img src="" alt="" id="lightboxImage" />
+
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">›</button>
+
+  </div>
+
+</BaseLayout>
+
+<style>
+
+  .gallery-page{
+    padding:80px 0 40px;
+  }
+
+  .gallery-filters{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+    margin-top:36px;
+  }
+
+  .filter-btn{
+    padding:10px 24px;
+    border-radius:50px;
+    border:2px solid rgba(15,23,42,.12);
+    background:#fff;
+    color:#0F172A;
+    font-weight:600;
+    font-size:.95rem;
+    cursor:pointer;
+    transition:.3s ease;
+  }
+
+  .filter-btn:hover{
+    border-color:var(--primary, #0F172A);
+  }
+
+  .filter-btn.active{
+    background:#0F172A;
+    border-color:#0F172A;
+    color:#fff;
+  }
+
+  .gallery-item-wrap{
+    display:block;
+  }
+
+  .gallery-cta{
+    padding:70px 0;
+    background:linear-gradient(135deg,#0F172A,#1E293B);
+    text-align:center;
+  }
+
+  .gallery-cta-inner h2{
+    color:#fff;
+    font-size:2.2rem;
+    margin-bottom:16px;
+  }
+
+  .gallery-cta-inner p{
+    color:rgba(255,255,255,.85);
+    max-width:560px;
+    margin:0 auto 30px;
+    font-size:1.05rem;
+    line-height:1.7;
+  }
+
+  .gallery-cta-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+  }
+
+  /* Lightbox */
+
+  .lightbox{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(5,10,20,.94);
+    padding:30px;
+  }
+
+  .lightbox.active{
+    display:flex;
+  }
+
+  .lightbox img{
+    max-width:90vw;
+    max-height:85vh;
+    object-fit:contain;
+    border-radius:12px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+  }
+
+  .lightbox-close,
+  .lightbox-nav{
+    position:absolute;
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.25s ease;
+  }
+
+  .lightbox-close:hover,
+  .lightbox-nav:hover{
+    background:rgba(255,255,255,.25);
+  }
+
+  .lightbox-close{
+    top:24px;
+    right:24px;
+    width:46px;
+    height:46px;
+    font-size:1.8rem;
+    line-height:1;
+  }
+
+  .lightbox-nav{
+    top:50%;
+    transform:translateY(-50%);
+    width:54px;
+    height:54px;
+    font-size:2.2rem;
+    line-height:1;
+  }
+
+  .lightbox-prev{
+    left:24px;
+  }
+
+  .lightbox-next{
+    right:24px;
+  }
+
+  @media (max-width:650px){
+
+    .lightbox-nav{
+      width:42px;
+      height:42px;
+      font-size:1.6rem;
+    }
+
+    .lightbox-close{
+      width:38px;
+      height:38px;
+      font-size:1.4rem;
+      top:14px;
+      right:14px;
+    }
+
+    .lightbox-prev{
+      left:10px;
+    }
+
+    .lightbox-next{
+      right:10px;
+    }
+
+  }
+
+</style>
+
+<script>
+
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const itemWraps = document.querySelectorAll(".gallery-item-wrap");
+  const allImgs = Array.from(document.querySelectorAll(".gallery-img"));
+
+  let visibleImgs = allImgs;
+
+  function refreshVisible() {
+    visibleImgs = allImgs.filter((img) => {
+      const wrap = img.closest(".gallery-item-wrap");
+      return wrap && wrap.style.display !== "none";
+    });
+  }
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+
+      itemWraps.forEach((wrap) => {
+        if (filter === "all" || wrap.dataset.category === filter) {
+          wrap.style.display = "";
+        } else {
+          wrap.style.display = "none";
+        }
+      });
+
+      refreshVisible();
+    });
+  });
+
+  refreshVisible();
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const closeBtn = document.getElementById("lightboxClose");
+  const prevBtn = document.getElementById("lightboxPrev");
+  const nextBtn = document.getElementById("lightboxNext");
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+    if (!visibleImgs.length) return;
+    currentIndex = (index + visibleImgs.length) % visibleImgs.length;
+    lightboxImage.src = visibleImgs[currentIndex].src;
+    lightboxImage.alt = visibleImgs[currentIndex].alt;
+  }
+
+  function openLightbox(img) {
+    refreshVisible();
+    const index = visibleImgs.indexOf(img);
+    showImage(index === -1 ? 0 : index);
+    lightbox.classList.add("active");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  allImgs.forEach((img) => {
+    img.addEventListener("click", () => openLightbox(img));
+  });
+
+  closeBtn.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
+  nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") showImage(currentIndex + 1);
+    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+  });
+
+</script>
