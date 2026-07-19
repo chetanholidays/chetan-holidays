@@ -30,5 +30,21 @@ export const tours = [
     badge: "Spiritual Tour",
     price: "Contact Us",
     slug: "jagannath"
+  },
+  {
+    title: "Amritsar - Vaishno Devi - Kashmir Tour",
+    image: "/images/amritsar-vaishno-devi-kashmir.jpg",
+    duration: "9 Nights / 10 Days",
+    badge: "Pilgrimage Tour",
+    price: "Contact Us",
+    slug: "amritsar-vaishno-devi-kashmir-tour"
+  },
+  {
+    title: "Chandigarh - Shimla - Manali - Dharamshala - Dalhousie Tour",
+    image: "/images/chandigarh-shimla-manali-dharamshala-dalhousie.jpg",
+    duration: "9 Nights / 10 Days",
+    badge: "Mountain Tour",
+    price: "Contact Us",
+    slug: "chandigarh-shimla-manali-dharamshala-dalhousie-tour"
   }
 ];

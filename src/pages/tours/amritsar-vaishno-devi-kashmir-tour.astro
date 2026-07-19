@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TourHero from "../../components/TourHero.astro";
+import StickyBookingBar from "../../components/StickyBookingBar.astro";
+import QuickInfo from "../../components/QuickInfo.astro";
+import TourItinerary from "../../components/TourItinerary.astro";
+import TourHotels from "../../components/TourHotels.astro";
+import TourGallery from "../../components/TourGallery.astro";
+import TourIncludes from "../../components/TourIncludes.astro";
+import TourEnquiry from "../../components/TourEnquiry.astro";
+import TourTerms from "../../components/TourTerms.astro";
+import DownloadPdfModal from "../../components/DownloadPdfModal.astro";
+import TourPdfTemplate from "../../components/TourPdfTemplate.astro";
+import { amritsarVaishnoDeviKashmir } from "../../data/amritsar-vaishno-devi-kashmir.js";
+---
+
+<BaseLayout
+  title="Amritsar Vaishno Devi Kashmir Tour Package | Chetan Holidays Mumbai"
+  description="Book the Amritsar, Vaishno Devi & Kashmir Family Tour with comfortable accommodation, meals and guided sightseeing."
+>
+
+<TourHero tour={amritsarVaishnoDeviKashmir} />
+<StickyBookingBar tour={amritsarVaishnoDeviKashmir} />
+<QuickInfo tour={amritsarVaishnoDeviKashmir} />
+<section class="tour-highlights">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Tour Highlights
+    </h2>
+
+    <div class="highlight-grid">
+
+      {amritsarVaishnoDeviKashmir.highlights.map((item) => (
+
+        <div class="highlight-card">
+
+          <div class="highlight-icon">
+            {item.icon}
+          </div>
+
+          <h3>{item.title}</h3>
+
+          <p>{item.description}</p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+<TourItinerary tour={amritsarVaishnoDeviKashmir} />
+<TourHotels tour={amritsarVaishnoDeviKashmir} />
+<TourGallery tour={amritsarVaishnoDeviKashmir} />
+<TourIncludes tour={amritsarVaishnoDeviKashmir} />
+<section class="tour-highlights">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Important Information
+    </h2>
+
+    <ul>
+
+      {amritsarVaishnoDeviKashmir.notes.map((note) => (
+
+        <li>{note}</li>
+
+      ))}
+
+    </ul>
+
+  </div>
+
+</section>
+<TourEnquiry tour={amritsarVaishnoDeviKashmir} />
+
+<TourTerms />
+<DownloadPdfModal tour={amritsarVaishnoDeviKashmir} />
+<TourPdfTemplate tour={amritsarVaishnoDeviKashmir} />
+
+</BaseLayout>
